@@ -7,6 +7,7 @@
   --text-color-light: rgba(92, 99, 105, 0.45);
   --positive-variation-color: #87d883;
   --negative-variation-color: #f55a5f;
+  --corBackgroundDark: black;
 }
 
 * {
@@ -15,9 +16,78 @@
 
 html,
 body {
-  height: 100%;
   width: 100%;
   margin: 0;
   background-color: var(--background-color);
   font-family: "Segoe UI", sans-serif;
+}
+
+.container {
+  height: 100%;
+}
+
+.ativar-dark {
+  width: 50px;
+  height: 50px;
+  display: none;
+  background-color: #d4e9ff;
+  color: #d4e9ff;
+}
+
+label {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 52px;
+  height: 30px;
+  background-color: #d4e9ff;
+  border-radius: 20px;
+  padding: 5px 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+label span {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background-color: var(--corBackgroundSecundaria);
+  border-radius: 100%;
+  transition: all ease 0.3s;
+  border-color: #d4e9ff;
+}
+
+.ativar-dark:checked ~ .dark-mode label {
+  background-color: #d4e9ff;
+}
+.ativar-dark:checked ~ .dark-mode label span {
+  background-color: var(--corBackgroundSecundaria);
+  /* margin-left: 21px; */
+  border-color: #d4e9ff;
+  transform: translateX(21px);
+  transition: all ease 0.3s;
+}
+
+.ativar-dark:checked ~ .dark-mode {
+  --corBackgroundPrimaria: #000;
+  --corBackgroundSecundaria: #000;
+  --text-color: #fff;
+  --text-color-light: #fff;
+}
+.ativar-dark:checked ~ .dark-mode header {
+  background-color: var(--corBackgroundSecundaria);
+  background: rgb(112, 110, 110);
+}
+.ativar-dark:checked ~ .dark-mode header .container {
+  background-color: var(--corBackgroundDark);
+  background: black;
+}
+
+.ativar-dark:checked ~ .dark-mode .container {
+  background-color: var(--corBackgroundDark);
+  background: black;
+}
+
+.ativar-dark:checked ~ .dark-mode div.stock-card-container {
+  background-color: #5c636994;
+  background: #5c636986;
 }
